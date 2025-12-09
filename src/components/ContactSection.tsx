@@ -23,14 +23,15 @@ const ContactSection = () => {
     {
       icon: Phone,
       label: "Telefono",
-      value: "Contattami su WhatsApp",
-      action: "tel:+39",
+      value: "334 746 6610",
+      action: "tel:+393347466610",
     },
     {
-      icon: Mail,
-      label: "Email",
-      value: "info@davidecarfora.it",
-      action: "mailto:info@davidecarfora.it",
+      icon: MapPin,
+      label: "Indirizzo",
+      value: "Via Etruria, 4",
+      sublabel: "84091 Battipaglia (SA)",
+      action: "https://maps.google.com/?q=Via+Etruria+4+84091+Battipaglia+SA",
     },
     {
       icon: Clock,
@@ -39,9 +40,10 @@ const ContactSection = () => {
       sublabel: "Su appuntamento",
     },
     {
-      icon: MapPin,
-      label: "Zona",
-      value: "Disponibile a domicilio",
+      icon: Mail,
+      label: "WhatsApp",
+      value: "Scrivimi su WhatsApp",
+      action: "https://wa.me/393347466610",
     },
   ];
 
@@ -197,11 +199,13 @@ const ContactSection = () => {
                 Nessun impegno. Scopri il mio metodo di allenamento.
               </p>
               <a
-                href="tel:+39"
+                href="https://wa.me/393347466610"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary-foreground text-primary rounded-lg font-body font-semibold hover:scale-105 transition-transform duration-300"
               >
                 <Phone className="w-5 h-5" />
-                Chiamami Ora
+                Contattami Ora
               </a>
             </div>
           </div>
