@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo-dc.png";
 
 const Navbar = () => {
@@ -18,6 +19,7 @@ const Navbar = () => {
     { href: "#home", label: "Home" },
     { href: "#chi-sono", label: "Chi Sono" },
     { href: "#servizi", label: "Servizi" },
+    { href: "/trasformazioni", label: "Trasformazioni", isPage: true },
     { href: "#certificazioni", label: "Certificazioni" },
     { href: "#prezzi", label: "Prezzi" },
     { href: "#contatti", label: "Contatti" },
@@ -48,15 +50,27 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`font-body text-sm font-medium tracking-wide uppercase transition-all duration-300 hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              }`}
-            >
-              {link.label}
-            </a>
+            link.isPage ? (
+              <Link
+                key={link.href}
+                to={link.href}
+                className={`font-body text-sm font-medium tracking-wide uppercase transition-all duration-300 hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full ${
+                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`font-body text-sm font-medium tracking-wide uppercase transition-all duration-300 hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full ${
+                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                }`}
+              >
+                {link.label}
+              </a>
+            )
           ))}
         </div>
 
@@ -79,14 +93,25 @@ const Navbar = () => {
       >
         <div className="container-custom py-6 flex flex-col gap-4">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="font-body text-foreground text-lg font-medium py-2 hover:text-primary transition-colors duration-300"
-            >
-              {link.label}
-            </a>
+            link.isPage ? (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="font-body text-foreground text-lg font-medium py-2 hover:text-primary transition-colors duration-300"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="font-body text-foreground text-lg font-medium py-2 hover:text-primary transition-colors duration-300"
+              >
+                {link.label}
+              </a>
+            )
           ))}
         </div>
       </div>
