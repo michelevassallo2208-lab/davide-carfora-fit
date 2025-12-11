@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Play } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -71,33 +71,55 @@ const transformations = [
   }
 ];
 
+const impactStats = [
+  { label: "Clienti seguiti", value: "250+" },
+  { label: "Percorsi completati", value: "180" },
+  { label: "Focus postura", value: "100%" },
+];
+
 const Trasformazioni = () => {
   return (
     <main className="overflow-hidden bg-background min-h-screen">
       <Navbar />
-      
+
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 bg-gradient-to-b from-background via-background to-card">
-        <div className="container-custom">
-          <Link 
-            to="/" 
+      <section className="relative pt-28 pb-16 bg-gradient-to-b from-background via-background to-card">
+        <div className="absolute inset-0 opacity-70">
+          <div className="absolute inset-y-0 right-1/4 w-[480px] rounded-full blur-3xl bg-primary/10" />
+          <div className="absolute inset-y-0 left-0 w-[320px] rounded-full blur-3xl bg-secondary/10" />
+        </div>
+
+        <div className="container-custom relative">
+          <Link
+            to="/"
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8 group"
           >
             <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
             <span className="font-body">Torna alla Home</span>
           </Link>
           
-          <div className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-5xl mx-auto space-y-6">
             <span className="inline-block text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
               Risultati Reali
             </span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground">
               Trasformazioni
             </h1>
-            <p className="text-muted-foreground text-lg md:text-xl font-body max-w-2xl mx-auto">
-              Storie vere di cambiamento. Ogni trasformazione è il risultato di dedizione, 
+            <p className="text-muted-foreground text-lg md:text-xl font-body max-w-3xl mx-auto">
+              Storie vere di cambiamento. Ogni trasformazione è il risultato di dedizione,
               costanza e un programma personalizzato.
             </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              {impactStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-2xl border border-border bg-card/70 px-6 py-4 shadow-sm backdrop-blur"
+                >
+                  <p className="font-display text-3xl text-foreground">{stat.value}</p>
+                  <p className="font-body text-sm text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -105,26 +127,39 @@ const Trasformazioni = () => {
       {/* Featured Video Section */}
       <section className="py-16 bg-card/50">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <span className="inline-block text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
-                Video Highlight
-              </span>
-              <h2 className="font-display text-3xl md:text-4xl text-foreground">
-                Il Cambiamento in Movimento
-              </h2>
-            </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-elegant group">
-              <video
-                controls
-                className="w-full h-auto"
-                poster=""
-                preload="metadata"
-              >
-                <source src="/videos/trasformazione-video.mp4" type="video/mp4" />
-                Il tuo browser non supporta i video.
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+            <div className="relative overflow-hidden rounded-3xl border border-border/80 bg-gradient-to-br from-card via-card/90 to-background shadow-elegant">
+              <div className="absolute inset-x-6 inset-y-4 rounded-2xl bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 blur-2xl" />
+              <div className="relative aspect-video overflow-hidden rounded-2xl m-4 border border-border/80 shadow-lg">
+                <video
+                  controls
+                  className="w-full h-full object-cover"
+                  preload="metadata"
+                >
+                  <source src="/videos/trasformazione-video.mp4" type="video/mp4" />
+                  Il tuo browser non supporta i video.
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
+              </div>
+              <div className="px-6 pb-6 flex flex-col gap-3 relative">
+                <div className="inline-flex items-center gap-2 self-start rounded-full bg-primary/15 text-primary px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em]">
+                  Video Highlight
+                </div>
+                <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight">
+                  Il Cambiamento in Movimento
+                </h2>
+                <p className="font-body text-muted-foreground text-base md:text-lg leading-relaxed">
+                  Guarda come impostiamo il metodo: lavoro tecnico, cura della postura e progressioni calibrate.
+                  Un estratto reale da una sessione guidata, pensata anche per smartphone e tablet.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {["Full HD", "Audio ottimizzato", "Mobile friendly"].map((badge) => (
+                    <span key={badge} className="px-3 py-1 rounded-full bg-muted text-foreground/80 text-xs font-semibold">
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -133,12 +168,12 @@ const Trasformazioni = () => {
       {/* Transformations Grid */}
       <section className="py-16">
         <div className="container-custom">
-          <div className="grid gap-16 md:gap-20">
+          <div className="grid gap-12 md:gap-16">
             {transformations.map((transformation, index) => (
-              <article 
+              <article
                 key={transformation.id}
-                className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ${
-                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center rounded-2xl border border-border/70 bg-card/70 shadow-card px-6 py-8 backdrop-blur ${
+                  index % 2 === 1 ? "lg:[&>*]:order-none" : ""
                 }`}
               >
                 {/* Image */}
@@ -159,7 +194,11 @@ const Trasformazioni = () => {
                 </div>
 
                 {/* Content */}
-                <div className={`space-y-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                <div
+                  className={`space-y-6 ${
+                    index % 2 === 1 ? "lg:order-1" : ""
+                  }`}
+                >
                   <div>
                     <span className="text-primary font-body text-sm tracking-wider uppercase">
                       Storia di Successo
@@ -168,12 +207,12 @@ const Trasformazioni = () => {
                       {transformation.name}
                     </h2>
                   </div>
-                  
+
                   <p className="text-muted-foreground font-body text-lg leading-relaxed">
                     {transformation.description}
                   </p>
-                  
-                  <blockquote className="border-l-4 border-primary pl-6 py-2">
+
+                  <blockquote className="border-l-4 border-primary pl-6 py-2 bg-primary/5 rounded-r-xl">
                     <p className="text-foreground/80 font-body italic text-base">
                       "{transformation.quote}"
                     </p>

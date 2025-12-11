@@ -1,4 +1,4 @@
-import { Check, Star, Gift, Zap } from "lucide-react";
+import { Check, Star, Gift, Zap, Users } from "lucide-react";
 import { useState } from "react";
 
 const packages = [
@@ -103,6 +103,8 @@ const monthlyPackages = [
     ],
   },
 ];
+
+const smallGroupNote = "Allenamenti in small group (max 3 persone) — non è un 1-to-1";
 
 const extras = [
   { name: "Scheda Allenamento Personalizzata", price: "70", icon: Zap },
@@ -228,6 +230,18 @@ const PricingSection = () => {
 
         {/* Mensili Tab */}
         {activeTab === "mensili" && (
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-body text-sm font-semibold">
+              <Users className="w-4 h-4" />
+              {smallGroupNote}
+            </div>
+            <p className="font-body text-muted-foreground mt-3">
+              I piani mensili non sono sessioni individuali 1-to-1: lavoriamo insieme in piccoli gruppi per mantenere motivazione e supporto continuo.
+            </p>
+          </div>
+        )}
+
+        {activeTab === "mensili" && (
           <div className="grid md:grid-cols-3 gap-8 mb-16 max-w-5xl mx-auto">
             {monthlyPackages.map((pkg, index) => (
               <div
@@ -261,7 +275,7 @@ const PricingSection = () => {
                 </div>
                 
                 <ul className="space-y-3 mb-8">
-                  {pkg.features.map((feature) => (
+                  {[smallGroupNote, ...pkg.features].map((feature) => (
                     <li key={feature} className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                       <span className="font-body text-sm text-muted-foreground">
