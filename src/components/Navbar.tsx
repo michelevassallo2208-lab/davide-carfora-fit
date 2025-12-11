@@ -18,6 +18,7 @@ const Navbar = () => {
     { href: "#home", label: "Home" },
     { href: "#chi-sono", label: "Chi Sono" },
     { href: "#servizi", label: "Servizi" },
+    { href: "#certificazioni", label: "Certificazioni" },
     { href: "#prezzi", label: "Prezzi" },
     { href: "#contatti", label: "Contatti" },
   ];
