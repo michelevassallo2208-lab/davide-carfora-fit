@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Play } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -114,17 +114,19 @@ const Trasformazioni = () => {
                 Il Cambiamento in Movimento
               </h2>
             </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-elegant group">
-              <video
-                controls
-                className="w-full h-auto"
-                poster=""
-                preload="metadata"
-              >
-                <source src="/videos/trasformazione-video.mp4" type="video/mp4" />
-                Il tuo browser non supporta i video.
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative overflow-hidden rounded-2xl shadow-elegant group border border-border bg-card">
+              <div className="aspect-video">
+                <video
+                  controls
+                  className="w-full h-full object-cover"
+                  poster=""
+                  preload="metadata"
+                >
+                  <source src="/videos/trasformazione-video.mp4" type="video/mp4" />
+                  Il tuo browser non supporta i video.
+                </video>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
         </div>

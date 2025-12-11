@@ -228,6 +228,17 @@ const PricingSection = () => {
 
         {/* Mensili Tab */}
         {activeTab === "mensili" && (
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-body text-sm font-semibold">
+              Allenamenti in small group (fino a 3 persone)
+            </div>
+            <p className="font-body text-muted-foreground mt-3">
+              I piani mensili non sono sessioni individuali 1-to-1: lavoriamo insieme in piccoli gruppi per mantenere motivazione e supporto continuo.
+            </p>
+          </div>
+        )}
+
+        {activeTab === "mensili" && (
           <div className="grid md:grid-cols-3 gap-8 mb-16 max-w-5xl mx-auto">
             {monthlyPackages.map((pkg, index) => (
               <div
