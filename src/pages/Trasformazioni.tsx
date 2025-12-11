@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Play } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 import trasformazioneValerio from "@/assets/trasformazione-valerio.png";
 import trasformazioneDavide from "@/assets/trasformazione-davide.png";
@@ -9,10 +10,19 @@ import trasformazioneAlfredo from "@/assets/trasformazione-alfredo.png";
 import trasformazioneCp from "@/assets/trasformazione-cp.png";
 import trasformazioneGiuseppe from "@/assets/trasformazione-giuseppe.png";
 import trasformazioneSchiena from "@/assets/trasformazione-schiena.png";
+import trasformazioneMarco from "@/assets/trasformazione-marco.png";
 
 const transformations = [
   {
     id: 1,
+    name: "Marco",
+    duration: "1 Anno",
+    image: trasformazioneMarco,
+    description: "Da 'non ci credo' a 'ci credo davvero!' Un anno fa, questo ragazzo è venuto da me con un obiettivo chiaro: dimagrire, tonificare e costruire massa muscolare. Oggi, dopo un percorso di impegno e dedizione, possiamo dire che il primo step è superato!",
+    quote: "Ho avuto il privilegio di seguirlo a 360° e insieme abbiamo lavorato duro, affrontando alti e bassi. È stato incredibile vederlo trasformarsi, non solo fisicamente, ma anche mentalmente. Ha abbracciato un nuovo stile di vita e ha superato ogni aspettativa. Ricorda: i risultati arrivano a chi non si arrende!"
+  },
+  {
+    id: 2,
     name: "Valerio",
     duration: "6 Mesi",
     image: trasformazioneValerio,
@@ -20,7 +30,7 @@ const transformations = [
     quote: "Se anche tu vuoi cambiare la tua vita e raggiungere i tuoi obiettivi, contattami! Insieme possiamo superare ogni limite e scoprire il tuo potenziale!"
   },
   {
-    id: 2,
+    id: 3,
     name: "Davide",
     duration: "La Mia Trasformazione",
     image: trasformazioneDavide,
@@ -28,7 +38,7 @@ const transformations = [
     quote: "Ricorda: non è mai troppo tardi per iniziare! Se ce l'ho fatta io, puoi farcela anche tu! Sii il cambiamento che vuoi vedere nella tua vita!"
   },
   {
-    id: 3,
+    id: 4,
     name: "Alfredo",
     duration: "7 Mesi",
     image: trasformazioneAlfredo,
@@ -36,7 +46,7 @@ const transformations = [
     quote: "Ma il peso è solo un numero. La verità è che la condizione fisica, la postura, la qualità del movimento e la forma generale stanno cambiando di mese in mese. Ed è questo che conta davvero."
   },
   {
-    id: 4,
+    id: 5,
     name: "C.P.",
     duration: "6 Mesi",
     image: trasformazioneCp,
@@ -44,7 +54,7 @@ const transformations = [
     quote: "Come si evince dai dati e dalle foto il corpo della signora è cambiato in maniera equilibrata, lo vediamo dai glutei, dall'addome, dalle gambe, dalla schiena e dalle braccia. Per questo il mio invito è di prendervi cura di voi stessi perché cambiare è possibile, basta solo volerlo!"
   },
   {
-    id: 5,
+    id: 6,
     name: "Giuseppe",
     duration: "8 Mesi",
     image: trasformazioneGiuseppe,
@@ -52,7 +62,7 @@ const transformations = [
     quote: "Dopo un percorso fatto di step e di costanza, con 3 allenamenti settimanali ha iniziato a vedere degli ottimi risultati: la massa muscolare è aumentata pesando 53,3 kg, la forza è aumentata, la postura è migliorata e soprattutto è migliorata la sua condizione fisica."
   },
   {
-    id: 6,
+    id: 7,
     name: "Trasformazione Schiena",
     duration: "Luglio - Ottobre",
     image: trasformazioneSchiena,
@@ -88,6 +98,34 @@ const Trasformazioni = () => {
               Storie vere di cambiamento. Ogni trasformazione è il risultato di dedizione, 
               costanza e un programma personalizzato.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Video Section */}
+      <section className="py-16 bg-card/50">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <span className="inline-block text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
+                Video Highlight
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl text-foreground">
+                Il Cambiamento in Movimento
+              </h2>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-elegant group">
+              <video
+                controls
+                className="w-full h-auto"
+                poster=""
+                preload="metadata"
+              >
+                <source src="/videos/trasformazione-video.mp4" type="video/mp4" />
+                Il tuo browser non supporta i video.
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
           </div>
         </div>
       </section>
